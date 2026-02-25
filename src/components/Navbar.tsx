@@ -1,93 +1,62 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, Truck } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Truck, Menu, X, Phone } from 'lucide-react';
 import { motion } from 'motion/react';
 
-const Navbar = () => {
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const links = [
-    { name: 'Início', href: '#home' },
-    { name: 'Sobre', href: '#about' },
-    { name: 'Serviços', href: '#services' },
-    { name: 'Contato', href: '#contact' },
-  ];
-
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-blue-950/95 backdrop-blur-sm shadow-lg py-3' : 'bg-transparent py-5'}`}>
-      <div className="container mx-auto px-4 md:px-8">
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-brand-900 shadow-lg py-3' : 'bg-brand-900/95 py-5'}`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          <a href="#home" className="flex items-center gap-2 text-white">
+          <div className="flex items-center gap-2 cursor-pointer">
             <Truck className="h-8 w-8 text-blue-400" />
-            <span className="text-xl font-bold tracking-tight uppercase">
-              Borba <span className="text-blue-400">Guincho</span>
-            </span>
-          </a>
-
+            <span className="text-2xl font-bold text-white tracking-tight">Borba<span className="text-blue-400">Guincho</span></span>
+          </div>
+          
           <div className="hidden md:flex items-center space-x-8">
-            {links.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-slate-200 hover:text-white transition-colors font-medium"
-              >
-                {link.name}
-              </a>
-            ))}
-            <a
-              href="#contact"
-              className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2 rounded-full font-semibold transition-all shadow-lg shadow-blue-900/50"
-            >
-              Chamar Guincho
+            <a href="#inicio" className="text-gray-300 hover:text-white transition-colors">Início</a>
+            <a href="#servicos" className="text-gray-300 hover:text-white transition-colors">Serviços</a>
+            <a href="#sobre" className="text-gray-300 hover:text-white transition-colors">Sobre</a>
+            <a href="#contato" className="text-gray-300 hover:text-white transition-colors">Contato</a>
+            <a href="#contato" className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-full font-medium transition-all transform hover:scale-105">
+              <Phone className="h-4 w-4" />
+              <span>Plantão 24h</span>
             </a>
           </div>
 
-          <button
-            className="md:hidden text-white"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+          <div className="md:hidden flex items-center">
+            <button onClick={() => setIsOpen(!isOpen)} className="text-white">
+              {isOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
+            </button>
+          </div>
         </div>
       </div>
 
+      {/* Mobile menu */}
       {isOpen && (
-        <motion.div
+        <motion.div 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="md:hidden absolute top-full left-0 w-full bg-blue-950 shadow-xl border-t border-blue-900"
+          className="md:hidden bg-brand-800 shadow-xl absolute w-full"
         >
-          <div className="flex flex-col p-4 space-y-4">
-            {links.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-slate-200 hover:text-white font-medium"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-              </a>
-            ))}
-            <a
-              href="#contact"
-              className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg font-semibold text-center"
-              onClick={() => setIsOpen(false)}
-            >
-              Chamar Guincho 24h
-            </a>
+          <div className="px-4 pt-2 pb-6 space-y-2">
+            <a href="#inicio" onClick={() => setIsOpen(false)} className="block px-3 py-3 text-white hover:bg-brand-700 rounded-md">Início</a>
+            <a href="#servicos" onClick={() => setIsOpen(false)} className="block px-3 py-3 text-white hover:bg-brand-700 rounded-md">Serviços</a>
+            <a href="#sobre" onClick={() => setIsOpen(false)} className="block px-3 py-3 text-white hover:bg-brand-700 rounded-md">Sobre</a>
+            <a href="#contato" onClick={() => setIsOpen(false)} className="block px-3 py-3 text-white hover:bg-brand-700 rounded-md">Contato</a>
           </div>
         </motion.div>
       )}
     </nav>
   );
-};
-
-export default Navbar;
+}

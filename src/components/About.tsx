@@ -1,69 +1,65 @@
-import React from 'react';
 import { motion } from 'motion/react';
-import { ShieldCheck, Clock, Wrench } from 'lucide-react';
+import { ShieldCheck, Target, Users } from 'lucide-react';
 
-const About = () => {
+export default function About() {
   return (
-    <section id="about" className="py-20 bg-white">
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
+    <section id="sobre" className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:w-1/2"
+            transition={{ duration: 0.5 }}
           >
-            <img
-              src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&q=80"
-              alt="Mecânico trabalhando"
-              className="rounded-2xl shadow-2xl"
+            <img 
+              src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+              alt="Equipe de mecânicos" 
+              className="rounded-2xl shadow-lg w-full object-cover h-[600px]"
             />
           </motion.div>
-
+          
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:w-1/2"
+            transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-blue-950 mb-6">
-              A Sua Escolha Certa em <br />Vargem Grande Paulista
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-900 mb-6">
+              Tradição e excelência em Vargem Grande Paulista
             </h2>
-            <p className="text-slate-600 text-lg mb-6 leading-relaxed">
-              A <strong>Borba Guincho e Serviços</strong> nasceu da necessidade de oferecer um atendimento automotivo honesto, rápido e eficaz para a região de Vargem Grande Paulista e Rodovia Raposo Tavares. Unimos a experiência em mecânica preventiva e corretiva com um serviço de resgate 24 horas.
+            <p className="text-lg text-slate-600 mb-8">
+              A <strong>Borba Guincho e Serviços</strong> nasceu com o propósito de oferecer suporte rápido e de qualidade para motoristas em situações de emergência e na manutenção preventiva de seus veículos. Somos a principal escolha na região de Vargem Grande Paulista/SP.
             </p>
-            <p className="text-slate-600 text-lg mb-10 leading-relaxed">
-              Seu carro quebrou? Precisa de uma revisão de confiança? Nossa equipe está pronta para atender com equipamentos modernos e a agilidade que você precisa.
-            </p>
+            
+            <div className="space-y-6">
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                  <Target className="h-6 w-6 text-blue-600" />
+                </div>
+                <div>
+                  <h4 className="text-xl font-semibold text-brand-900">Nossa Missão</h4>
+                  <p className="text-slate-600 mt-1">Garantir a mobilidade e segurança dos nossos clientes com serviços ágeis de guincho e mecânica precisa.</p>
+                </div>
+              </div>
+              
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                  <ShieldCheck className="h-6 w-6 text-blue-600" />
+                </div>
+                <div>
+                  <h4 className="text-xl font-semibold text-brand-900">Confiabilidade</h4>
+                  <p className="text-slate-600 mt-1">Trabalhamos com transparência nos orçamentos e peças originais, prezando pelo respeito ao consumidor.</p>
+                </div>
+              </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="flex items-start gap-4">
-                <div className="bg-blue-100 p-3 rounded-lg text-blue-700">
-                  <Clock className="h-6 w-6" />
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                  <Users className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-blue-950">Atendimento 24h</h3>
-                  <p className="text-sm text-slate-600">Guincho disponível dia e noite.</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="bg-blue-100 p-3 rounded-lg text-blue-700">
-                  <ShieldCheck className="h-6 w-6" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-blue-950">Transparência</h3>
-                  <p className="text-sm text-slate-600">Orçamento claro e sem surpresas.</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="bg-blue-100 p-3 rounded-lg text-blue-700">
-                  <Wrench className="h-6 w-6" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-blue-950">Mão de Obra Especializada</h3>
-                  <p className="text-sm text-slate-600">Profissionais experientes.</p>
+                  <h4 className="text-xl font-semibold text-brand-900">Equipe Qualificada</h4>
+                  <p className="text-slate-600 mt-1">Profissionais experientes, atualizados e prontos para resolver desde panes elétricas até reparos complexos no motor.</p>
                 </div>
               </div>
             </div>
@@ -72,6 +68,4 @@ const About = () => {
       </div>
     </section>
   );
-};
-
-export default About;
+}
