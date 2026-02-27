@@ -1,23 +1,23 @@
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Services from './components/Services';
-import About from './components/About';
-import Testimonials from './components/Testimonials';
-import Footer from './components/Footer';
+import { Navbar } from './components/Navbar';
+import { Hero } from './components/Hero';
+import { ProblemSolution } from './components/ProblemSolution';
+import { Products } from './components/Products';
+import { Authority } from './components/Authority';
+import { Footer } from './components/Footer';
+import { WhatsAppButton } from './components/WhatsAppButton';
 
-function App() {
+export default function App() {
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans">
+    <div className="min-h-screen bg-zinc-950">
       <Navbar />
       <main>
         <Hero />
-        <Services />
-        <About />
-        <Testimonials />
+        <ProblemSolution />
+        <Products />
+        <Authority />
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }
-
-export default App;
