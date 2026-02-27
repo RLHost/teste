@@ -1,23 +1,23 @@
-import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { ProblemSolution } from './components/ProblemSolution';
-import { Products } from './components/Products';
-import { Authority } from './components/Authority';
-import { Footer } from './components/Footer';
-import { WhatsAppButton } from './components/WhatsAppButton';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Problem from './components/Problem';
+import Solution from './components/Solution';
+import Authority from './components/Authority';
+import Footer from './components/Footer';
+import WhatsApp from './components/WhatsApp';
 
-export default function App() {
+function App() {
   return (
-    <div className="min-h-screen bg-zinc-950">
+    <main className="bg-zinc-950 min-h-screen">
       <Navbar />
-      <main>
-        <Hero />
-        <ProblemSolution />
-        <Products />
-        <Authority />
-      </main>
+      <Hero />
+      <Problem />
+      <Solution />
+      <Authority />
       <Footer />
-      <WhatsAppButton />
-    </div>
+      <WhatsApp />
+    </main>
   );
 }
+
+export default App;

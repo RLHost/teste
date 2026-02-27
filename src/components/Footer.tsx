@@ -1,21 +1,32 @@
 import { Zap } from 'lucide-react';
 
-export const Footer = () => {
+export default function Footer() {
   return (
-    <footer className="bg-zinc-950 border-t border-zinc-900 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-        <div className="flex items-center gap-2">
-          <Zap className="w-6 h-6 text-lime-400" />
-          <span className="text-xl font-black tracking-tighter text-white uppercase">Adrenal<span className="text-lime-400">X</span></span>
-        </div>
-        <p className="text-zinc-600 text-sm font-bold uppercase tracking-wider text-center">
-          © {new Date().getFullYear()} AdrenalX. Apenas para os fortes. Todos os direitos reservados.
-        </p>
-        <div className="flex gap-4">
-          <a href="#" className="text-zinc-500 hover:text-lime-400 font-bold uppercase text-sm transition-colors">Instagram</a>
-          <a href="#" className="text-zinc-500 hover:text-lime-400 font-bold uppercase text-sm transition-colors">YouTube</a>
+    <footer id="contato" className="bg-black py-16 border-t border-zinc-900">
+      <div className="container mx-auto px-6">
+        <div className="flex flex-col items-center text-center">
+          <div className="flex items-center gap-2 mb-8">
+            <Zap className="w-10 h-10 text-neon-400" />
+            <span className="font-heading font-black text-3xl tracking-tighter uppercase">
+              Extreme<span className="text-neon-400">Gear</span>
+            </span>
+          </div>
+          
+          <h2 className="font-heading font-black text-3xl md:text-4xl uppercase mb-8 max-w-2xl">
+            Pronto Para Deixar Os Amadores Para Trás?
+          </h2>
+          
+          <button 
+            className="bg-neon-400 hover:bg-neon-500 text-zinc-950 font-black py-5 px-10 uppercase tracking-widest text-lg transition-all transform hover:scale-105 mb-16"
+          >
+            Falar Com Especialista Agora
+          </button>
+
+          <p className="text-zinc-600 text-sm font-medium uppercase tracking-wider">
+            &copy; {new Date().getFullYear()} ExtremeGear. Alta Performance Garantida.
+          </p>
         </div>
       </div>
     </footer>
   );
-};
+}
